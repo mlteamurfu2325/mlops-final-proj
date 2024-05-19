@@ -10,6 +10,9 @@
 # do not ignore .pre-commit-config.yaml
 !.pre-commit-config.yaml
 
+# ignore Python cache
+**/__pycache__/
+
 # patterns for dvc
 !.dvc
 
