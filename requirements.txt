@@ -1,0 +1,8 @@
+# development
+pre-commit
+ruff
+
+# functional
+beautifulsoup4
+pandas
+requests
