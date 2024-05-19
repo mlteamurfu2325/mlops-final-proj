@@ -20,6 +20,12 @@ def preprocess_data(filepath):
         logging.warning("Missing values detected. Dropping missing values.")
         df.dropna(inplace=True)
 
+    # Remove duplicates
+    initial_row_count = len(df)
+    df.drop_duplicates(inplace=True)
+    final_row_count = len(df)
+    logging.info(f"Removed {initial_row_count - final_row_count} duplicate rows.")
+
     return df
 
 
