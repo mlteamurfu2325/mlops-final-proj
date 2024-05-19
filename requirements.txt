@@ -1,6 +1,7 @@
 # development
 pre-commit
 ruff
+dvc
 
 # functional
 beautifulsoup4
