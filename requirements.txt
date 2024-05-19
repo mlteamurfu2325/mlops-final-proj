@@ -2,8 +2,10 @@
 pre-commit
 ruff
 dvc
+dvc[gdrive]
 
 # functional
 beautifulsoup4
 pandas
 requests
+scikit-learn
