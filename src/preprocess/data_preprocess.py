@@ -24,6 +24,10 @@ def preprocess_data(filepath):
 
 
 def save_processed_data(df, output_path):
+    # Ensure the target directory exists
+    output_dir = Path(output_path).parent
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     df.to_csv(output_path, index=False)
     logging.info(f"Processed data saved to {output_path}")
 

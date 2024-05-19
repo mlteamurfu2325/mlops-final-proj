@@ -32,6 +32,12 @@ if __name__ == "__main__":
     model_output_path = f"{str(Path(__file__).parent.parent.parent)}/models/logistic_regression_model.pkl"
     vectorizer_output_path = f"{str(Path(__file__).parent.parent.parent)}/models/tfidf_vectorizer.pkl"
 
+    # Ensure the target directories exist
+    model_output_dir = Path(model_output_path).parent
+    vectorizer_output_dir = Path(vectorizer_output_path).parent
+    model_output_dir.mkdir(parents=True, exist_ok=True)
+    vectorizer_output_dir.mkdir(parents=True, exist_ok=True)
+
     joblib.dump(model, model_output_path)
     joblib.dump(tfidf, vectorizer_output_path)
 
