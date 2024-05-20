@@ -3,6 +3,7 @@ pre-commit
 ruff
 dvc
 dvc[gdrive]
+pytest
 
 # functional
 beautifulsoup4
