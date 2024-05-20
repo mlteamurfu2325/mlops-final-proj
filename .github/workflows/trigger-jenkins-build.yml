@@ -1,0 +1,22 @@
+name: Trigger Jenkins Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-jenkins-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Jenkins build
+        run: |
+          curl -X POST "$JENKINS_BASE_URL/buildByToken/build?job=$JENKINS_JOB_NAME&token=$JENKINS_BUILD_TOKEN" \
+               --user $JENKINS_USERNAME:$JENKINS_API_TOKEN
+        env:
+          JENKINS_BASE_URL: ${{ secrets.JENKINS_BASE_URL }}
+          JENKINS_USERNAME: ${{ secrets.JENKINS_USERNAME }}
+          JENKINS_API_TOKEN: ${{ secrets.JENKINS_API_TOKEN }}
+          JENKINS_BUILD_TOKEN: ${{ secrets.JENKINS_BUILD_TOKEN }}
+          JENKINS_JOB_NAME: ${{ secrets.JENKINS_JOB_NAME }}
